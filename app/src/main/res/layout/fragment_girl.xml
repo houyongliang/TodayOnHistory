@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fnfh.base.BaseFragment"
+    android:background="@color/colorPrimaryDark">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/girl"/>
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_title_main"
+
+        style="@style/MatchAndWarp"></android.support.v7.widget.Toolbar>
+
+</FrameLayout>

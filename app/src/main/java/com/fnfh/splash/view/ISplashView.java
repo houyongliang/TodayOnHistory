@@ -1,5 +1,7 @@
 package com.fnfh.splash.view;
 
+import com.fnfh.splash.bean.TimeBean;
+
 /**
  * 1. 作用
  * 2. 作者 侯永亮
@@ -9,4 +11,7 @@ package com.fnfh.splash.view;
 public interface ISplashView {
     void timeDown(int  time);
     void toMainActivity();
+    TimeBean getTime();
+    void setTime(TimeBean timeBean);
+
 }

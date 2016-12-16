@@ -7,5 +7,6 @@ package com.fnfh.splash.bean;
  */
 
 public class TimeBean {
-    int time;
+    public int time;
+    public int durtime;
 }

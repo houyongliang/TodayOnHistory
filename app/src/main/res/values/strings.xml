@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">历史上的今天</string>
+    <string name="app_name">历史上的今天hyl</string>
     <string name="bigin_time_down_splash">3 S</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -10,5 +10,9 @@
     <string name="about">关于</string>
     <string name="history">历史上的今天</string>
     <string name="header">看历史 \n  \n     知兴替</string>
-    <string name="my_txt">你的文本内容</string>
+    <string name="my_txt">作者：侯永亮</string>
+    <string name="historyData">2016年12月17日</string>
+    <string name="ok">确定</string>
+    <string name="menu_down">menu下载软件</string>
+    <string name="nuli">努力中。。</string>
 </resources>

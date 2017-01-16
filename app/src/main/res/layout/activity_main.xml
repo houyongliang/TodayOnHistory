@@ -4,23 +4,24 @@
     android:id="@+id/myDrawer"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-
     <LinearLayout
         android:id="@+id/hideLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <!-- 顶部栏 -->
         <android.support.v7.widget.Toolbar
             android:id="@+id/mToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorAccent"
+            android:clipToPadding="true"
             android:fitsSystemWindows="true"
-            android:minHeight="?attr/actionBarSize"
+            android:maxHeight="?attr/actionBarSize"
             android:popupTheme="@style/Widget.AppCompat.ActionBar"
-            app:theme="@style/Widget.AppCompat.Light.ActionBar"></android.support.v7.widget.Toolbar>
+            app:theme="@style/Widget.AppCompat.Light.ActionBar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            ></android.support.v7.widget.Toolbar>
 
         <!-- 用于加载导航栏的容器 -->
         <FrameLayout
@@ -40,7 +41,11 @@
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:headerLayout="@layout/header"
         app:menu="@menu/nav_menu"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"></android.support.design.widget.NavigationView>
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
+
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
 
 
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:clipToPadding="true"-->

@@ -1,48 +1,86 @@
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:layout_width="match_parent"
-
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-      >
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+        <!--<TextView-->
+        <!--android:id="@+id/home_tv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="10dp"/>-->
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|enterAlways"
-                />
-        <LinearLayout
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <TextView
+                    android:id="@+id/pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:clickable="true"
+                    android:drawableLeft="@mipmap/ic_left"
+                    android:drawablePadding="20dp" />
+
+                <TextView
+                    android:id="@+id/setTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/historyData"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:clickable="true"
+                    android:drawableLeft="@mipmap/ic_right" />
+
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+
+            android:id="@+id/home_swipRL"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-        </LinearLayout>
-            
-    </android.support.design.widget.AppBarLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/reyv_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
-       <android.support.v7.widget.RecyclerView
-           android:id="@+id/reyv_home"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
+        </android.support.v4.widget.SwipeRefreshLayout>
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/home_fltingActButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
             android:layout_marginBottom="20dp"
             android:layout_marginRight="20dp"
-            android:src="@mipmap/ic_calender"/>
+            android:clickable="true"
+            android:src="@mipmap/ic_calender" />
 
 
 </android.support.design.widget.CoordinatorLayout>

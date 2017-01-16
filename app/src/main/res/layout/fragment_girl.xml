@@ -1,17 +1,46 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.fnfh.base.BaseFragment"
     android:background="@color/colorPrimaryDark">
-    <TextView
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/gril_fg_sfl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+            android:id="@+id/rycv_gril"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></android.support.v7.widget.RecyclerView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!--<TextView-->
+            <!--android:id="@+id/girl_fg_tv_empty"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:text="暂无数据"-->
+            <!--android:textColor="@color/colorAccent"-->
+            <!--android:visibility="gone" />-->
+
+    </RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/girl_fltingActBut"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="@string/girl"/>
-    <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_title_main"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="19dp"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/icon_up"
+        />
 
-        style="@style/MatchAndWarp"></android.support.v7.widget.Toolbar>
-
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

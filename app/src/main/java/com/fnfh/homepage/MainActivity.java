@@ -3,6 +3,7 @@ package com.fnfh.homepage;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -16,15 +17,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.fnfh.R;
 import com.fnfh.base.BaseFragment;
 import com.fnfh.fragment.CollectPageFragment;
-import com.fnfh.fragment.GirlPageFragment;
+
 import com.fnfh.fragment.HomePageFragment;
 import com.fnfh.fragment.OtherPageFragment;
+import com.fnfh.fragment.grilpage.GirlPageFragment;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,11 +55,39 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fm;
     private List<BaseFragment> list;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            //透明状态栏
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            //透明导航栏
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            // 激活状态栏
+            tintManager.setStatusBarTintEnabled(true);
+            // enable navigation bar tint 激活导航栏
+//            tintManager.setNavigationBarTintEnabled(true);
+            //设置系统栏设置颜色
+            //tintManager.setTintColor(R.color.red);
+            //给状态栏设置颜色
+            tintManager.setStatusBarTintResource(R.color.colorAccent); /*设置上面的按钮*/
+            //Apply the specified drawable or color resource to the system navigation bar.
+            //给导航栏设置资源
+//            tintManager.setNavigationBarTintResource(R.color.colorAccent);/*设置下面的按钮 返回*/
+
+        }
+
+
         initData();
         initView();
 
@@ -110,13 +144,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.item_about:
                         nav.setCheckedItem(item.getItemId());
-                        showFragment(list,"COLLECT");
-//                        replaceFragment(new CollectPageFragment(), "COLLECT");
-                        break;
-                    case R.id.item_collect:
-                        nav.setCheckedItem(item.getItemId());
                         showFragment(list,"OTHER");
 //                        replaceFragment(new HomePageFragment(), "HOME");
+                        break;
+                    case R.id.item_collect:
+
+                        nav.setCheckedItem(item.getItemId());
+                        showFragment(list,"COLLECT");
+//                        replaceFragment(new CollectPageFragment(), "COLLECT");
                         break;
 
                 }
